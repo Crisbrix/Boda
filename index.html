@@ -124,13 +124,11 @@
         font-size: 70px;
     }
 
-    /* Header con imagen */
-    .header {
+    /* Imagen del header */
+    .header img {
       width: 100%;
-      height: 300px; /* puedes ajustar el alto */
-      background-image: url("Tiacindy/10.jpg");
-      background-size: cover;
-      background-position: center;
+      height: 300px; /* Ajusta el alto del banner */
+      object-fit: cover; /* Para que se recorte sin deformarse */
     }
     
     .btns .confirmar { border: 1px solid #9dc9e4; color: #036; }
@@ -139,8 +137,9 @@
 </head>
 <body>
 
-<!-- Imagen en la parte de arriba -->
+  <!-- Imagen en la parte de arriba -->
   <div class="header">
+    <img src="10.jpg" alt="Banner Boda">
   </div>
 
   <header>
