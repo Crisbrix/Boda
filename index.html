@@ -9,8 +9,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda - Jennifer & Cindy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Boda Jennifer & Cindy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
@@ -173,42 +173,25 @@
     }
     
     .color-btn {
-      width: 50px;
-      height: 50px;
-      border: 4px solid rgba(255,255,255,0.8);
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ddd;
       border-radius: 50%;
+      margin: 0 5px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15), 
-                  inset 0 2px 4px rgba(255,255,255,0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .color-btn::before {
-      content: '';
-      position: absolute;
-      top: 15%;
-      left: 20%;
-      width: 30%;
-      height: 40%;
-      background: rgba(255,255,255,0.4);
-      border-radius: 50%;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      position: relative;
     }
     
     .color-btn:hover {
-      transform: scale(1.15) translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25), 
-                  inset 0 2px 4px rgba(255,255,255,0.4);
-      border-color: rgba(255,255,255,1);
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     
     .color-btn.active {
       border-color: #333;
-      transform: scale(1.2) translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3), 
-                  inset 0 2px 4px rgba(255,255,255,0.5);
+      transform: scale(1.15);
     }
     
     .color-btn.active::after {
@@ -288,6 +271,26 @@
       opacity: 1;
     }
     
+    /* Interacciones táctiles para móviles */
+    @media (hover: none) and (pointer: coarse) {
+      .treasure-chest:active .chest-lid {
+        transform: rotateX(-45deg) rotateY(0deg) rotateZ(0deg);
+      }
+      
+      .treasure-chest:active .chest-contents {
+        opacity: 1;
+      }
+      
+      .treasure-chest:active {
+        transform: scale(1.05);
+      }
+      
+      .treasure-chest-container p {
+        font-size: 0.7rem;
+        color: #666;
+      }
+    }
+    
     /* Efecto de brillo en los elementos dorados */
     @keyframes goldShimmer {
       0% { filter: brightness(1); }
@@ -298,6 +301,262 @@
     .treasure-chest:hover circle[fill*="goldGradient"],
     .treasure-chest:hover rect[fill*="goldGradient"] {
       animation: goldShimmer 1.5s ease-in-out infinite;
+    }
+    
+    /* Diseño Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .Names {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 0.9rem;
+      }
+      
+      .info-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      .info-box h2, .info-box h3 {
+        font-size: 1.2rem;
+      }
+      
+      /* Vestido responsive */
+      .dress-container {
+        margin: 1rem 0;
+      }
+      
+      .dress-svg {
+        width: 120px;
+        height: 140px;
+      }
+      
+      .color-buttons {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .color-btn {
+        width: 35px;
+        height: 35px;
+        margin: 0.2rem;
+      }
+      
+      /* Cofre responsive */
+      .gift-section {
+        margin: 1rem 0;
+        padding: 1rem;
+      }
+      
+      .treasure-chest {
+        width: 150px;
+        height: 112px;
+      }
+      
+      .treasure-chest-container p {
+        font-size: 0.7rem;
+      }
+      
+      /* Galería responsive */
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+      
+      .gallery img {
+        border-radius: 0.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .Names {
+        font-size: 1.8rem;
+      }
+      
+      header {
+        padding: 1rem;
+      }
+      
+      .info-box {
+        padding: 0.8rem;
+      }
+      
+      /* Vestido más pequeño en móviles */
+      .dress-svg {
+        width: 100px;
+        height: 120px;
+      }
+      
+      .color-btn {
+        width: 30px;
+        height: 30px;
+      }
+      
+      /* Cofre más pequeño */
+      .treasure-chest {
+        width: 120px;
+        height: 90px;
+      }
+      
+      .gift-section h3 {
+        font-size: 1.1rem;
+      }
+      
+      .gift-section p {
+        font-size: 0.8rem;
+      }
+      
+      /* Galería en una columna */
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      /* Botones más grandes para touch */
+      .color-btn {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      /* Tablets */
+      .container {
+        max-width: 700px;
+        padding: 1.5rem;
+      }
+      
+      .dress-svg {
+        width: 140px;
+        height: 160px;
+      }
+      
+      .treasure-chest {
+        width: 180px;
+        height: 135px;
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* Estilos para el smoking */
+    .tuxedo-container {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    
+    .tuxedo-svg {
+      width: 140px;
+      height: 100px;
+      margin: 1rem auto;
+      transition: transform 0.3s ease;
+    }
+    
+    .tuxedo-svg:hover {
+      transform: scale(1.05);
+    }
+    
+    .tuxedo-color-buttons {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .tuxedo-btn {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    
+    .tuxedo-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .tuxedo-btn.active {
+      border-color: #333;
+      transform: scale(1.15);
+    }
+    
+    .tuxedo-btn.active::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255,255,255,0.9);
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .tux-black { 
+      background: linear-gradient(135deg, #2C2C2C, #1A1A1A);
+    }
+    .tux-navy { 
+      background: linear-gradient(135deg, #1B2951, #0F1B3C);
+    }
+    .tux-charcoal { 
+      background: linear-gradient(135deg, #36454F, #2F3E46);
+    }
+    .tux-wine { 
+      background: linear-gradient(135deg, #722F37, #5D1A1D);
+    }
+    .tux-blue-pastel { 
+      background: linear-gradient(135deg, #ADD8E6, #B0E0E6);
+    }
+    .tux-gray-light { 
+      background: linear-gradient(135deg, #D3D3D3, #E0E0E0);
+    }
+    
+    /* Responsive para smoking */
+    @media (max-width: 768px) {
+      .tuxedo-container {
+        margin: 1rem 0;
+        padding: 1rem;
+      }
+      
+      .tuxedo-svg {
+        width: 120px;
+        height: 150px;
+      }
+      
+      .tuxedo-btn {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .tuxedo-svg {
+        width: 100px;
+        height: 125px;
+      }
+      
+      .tuxedo-btn {
+        width: 30px;
+        height: 30px;
+        min-width: 44px;
+        min-height: 44px;
+      }
     }
   </style>
 </head>
@@ -447,15 +706,110 @@
       </svg>
       
       <div class="color-buttons">
-        <button class="color-btn btn-black active" onclick="changeDressColor('#2C2C2C', this)" title="Negro"></button>
-        <button class="color-btn btn-wine" onclick="changeDressColor('#722F37', this)" title="Vinotinto"></button>
-        <button class="color-btn btn-pink" onclick="changeDressColor('#FFB6C1', this)" title="Rosado Pastel"></button>
-        <button class="color-btn btn-blue" onclick="changeDressColor('#ADD8E6', this)" title="Azul Pastel"></button>
-        <button class="color-btn btn-gray" onclick="changeDressColor('#808080', this)" title="Gris"></button>
-        <button class="color-btn btn-red" onclick="changeDressColor('#DC143C', this)" title="Rojo"></button>
+        <button class="color-btn active" style="background-color: #2C2C2C;" onclick="changeDressColor('#2C2C2C', this)" title="Negro"></button>
+        <button class="color-btn" style="background-color: #722F37;" onclick="changeDressColor('#722F37', this)" title="Vinotinto"></button>
+        <button class="color-btn" style="background-color: #FFB6C1;" onclick="changeDressColor('#FFB6C1', this)" title="Rosado Pastel"></button>
+        <button class="color-btn" style="background-color: #ADD8E6;" onclick="changeDressColor('#ADD8E6', this)" title="Azul Pastel"></button>
+        <button class="color-btn" style="background-color: #808080;" onclick="changeDressColor('#808080', this)" title="Gris"></button>
+        <button class="color-btn" style="background-color: #191970;" onclick="changeDressColor('#191970', this)" title="Azul Oscuro"></button>
       </div>
       
       <p style="font-size: .8rem; color:#666; margin-top: .5rem;">Haz clic en los colores para ver el vestido</p>
+    </div>
+    
+    <!-- Smoking interactivo -->
+    <div class="tuxedo-container">
+      <h3 style="color: #333; margin-bottom: 1rem; text-align: center;">Código de vestimenta masculina</h3>
+      <p style="font-size: .9rem; color:#666; text-align: center; margin-bottom: 1rem;">
+        Smoking en colores negro, azul marino, gris carbón, vinotinto, azul pastel o gris claro.
+      </p>
+      
+      <svg class="tuxedo-svg" viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="tuxedoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2C2C2C;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1A1A1A;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="shirtGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#F8F8F8;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="bowTieGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        
+        
+        <!-- Chaqueta/Saco aún más delgado -->
+        <path class="suit-jacket" 
+              d="M32 40 Q32 26 40 21 Q45 16 54 13 Q60 10 70 10 Q80 10 86 13 
+                 Q95 16 100 21 Q108 26 108 40 Q110 44 110 48 L110 84 
+                 Q110 90 104 92 Q100 93 94 93 L46 93 Q40 93 36 92 
+                 Q30 90 30 84 L30 48 Q30 44 32 40 Z" 
+              fill="url(#tuxedoGradient)" 
+              stroke="#333" 
+              stroke-width="1.5"/>
+        
+        <!-- Solapas más estrechas -->
+        <path class="lapel-left" 
+              d="M32 40 Q36 28 46 32 Q52 35 58 46 Q56 50 50 52 Q42 50 32 46 Z" 
+              fill="none" 
+              stroke="#333" 
+              stroke-width="1.5"/>
+        <path class="lapel-right" 
+              d="M108 40 Q104 28 94 32 Q88 35 82 46 Q84 50 90 52 Q98 50 108 46 Z" 
+              fill="none" 
+              stroke="#333" 
+              stroke-width="1.5"/>
+        
+        <!-- Camisa aún más estrecha -->
+        <path class="dress-shirt" 
+              d="M50 13 Q54 10 70 10 Q86 10 90 13 Q92 16 92 20 L92 78 
+                 Q92 84 86 86 Q82 87 76 87 L64 87 Q58 87 54 86 
+                 Q48 84 48 78 L48 20 Q48 16 50 13 Z" 
+              fill="url(#shirtGradient)" 
+              stroke="#DDD" 
+              stroke-width="1"/>
+        
+        <!-- Cuello de camisa más estrecho -->
+        <path d="M58 12 Q60 10 64 12 Q66 10 70 12 Q74 10 76 12 Q78 10 82 12 
+                 L80 20 Q76 17 72 20 Q70 17 68 20 Q64 17 60 20 L58 12" 
+              fill="url(#shirtGradient)" 
+              stroke="#DDD" 
+              stroke-width="1"/>
+        
+        <!-- Corbata más delgada -->
+        <path class="necktie" 
+              d="M68 20 Q69 19 71 20 Q71.5 22 72 27 L72.5 37 Q73 47 73.5 57 
+                 Q74 67 72.5 74 Q71.5 76 70 76 Q68.5 76 67.5 74 Q66 67 66.5 57 
+                 Q67 47 67.5 37 L68 27 Q68.5 22 68 20 Z" 
+              fill="url(#bowTieGradient)" 
+              stroke="#333" 
+              stroke-width="0.8"/>
+        
+        <!-- Nudo de corbata más pequeño -->
+        <ellipse cx="70" cy="22" rx="2.5" ry="2" 
+                 fill="url(#bowTieGradient)" 
+                 stroke="#333" 
+                 stroke-width="0.5"/>
+        
+        <!-- Botones de camisa -->
+        <circle cx="70" cy="34" r="1" fill="#FFF" stroke="#DDD" stroke-width="0.4"/>
+        <circle cx="70" cy="44" r="1" fill="#FFF" stroke="#DDD" stroke-width="0.4"/>
+        <circle cx="70" cy="54" r="1" fill="#FFF" stroke="#DDD" stroke-width="0.4"/>
+        <circle cx="70" cy="64" r="1" fill="#FFF" stroke="#DDD" stroke-width="0.4"/>
+      </svg>
+      
+      <div class="tuxedo-color-buttons">
+        <button class="tuxedo-btn active" style="background-color: #2C2C2C;" onclick="changeTuxedoColor('#2C2C2C', this)" title="Negro"></button>
+        <button class="tuxedo-btn" style="background-color: #722F37;" onclick="changeTuxedoColor('#722F37', this)" title="Vinotinto"></button>
+        <button class="tuxedo-btn" style="background-color: #4169E1;" onclick="changeTuxedoColor('#4169E1', this)" title="Azul"></button>
+        <button class="tuxedo-btn" style="background-color: #808080;" onclick="changeTuxedoColor('#808080', this)" title="Gris"></button>
+        <button class="tuxedo-btn" style="background-color: #191970;" onclick="changeTuxedoColor('#191970', this)" title="Azul Oscuro"></button>
+      </div>
+      
+      <p style="font-size: .8rem; color:#666; margin-top: .5rem; text-align: center;">Haz clic en los colores para ver el smoking</p>
     </div>
     
     <!-- Sección de Regalos -->
@@ -603,7 +957,7 @@
       const dressBodice = document.querySelector('.dress-bodice');
       const gradient = document.getElementById('dressGradient');
       
-      // Crear gradientes elegantes para cada color (mixto: algunos pastel, otros normales)
+      // Crear gradientes elegantes para cada color
       let lightColor, darkColor;
       if (color === '#2C2C2C') { // Negro
         lightColor = '#2C2C2C';
@@ -613,16 +967,16 @@
         darkColor = '#5D1A1D';
       } else if (color === '#FFB6C1') { // Rosado Pastel
         lightColor = '#FFB6C1';
-        darkColor = '#FFC0CB';
+        darkColor = '#FF91A4';
       } else if (color === '#ADD8E6') { // Azul Pastel
         lightColor = '#ADD8E6';
-        darkColor = '#B0E0E6';
+        darkColor = '#87CEEB';
       } else if (color === '#808080') { // Gris
         lightColor = '#808080';
         darkColor = '#696969';
-      } else if (color === '#DC143C') { // Rojo
-        lightColor = '#DC143C';
-        darkColor = '#B22222';
+      } else if (color === '#191970') { // Azul Oscuro
+        lightColor = '#191970';
+        darkColor = '#0F0F47';
       }
       
       // Actualizar el gradiente para la falda y el corsé
@@ -642,6 +996,64 @@
       dressContainer.style.transform = 'scale(1.03)';
       setTimeout(() => {
         dressContainer.style.transform = 'scale(1)';
+      }, 250);
+    }
+    
+    // Función para cambiar el color del traje
+    function changeTuxedoColor(color, button) {
+      const tuxedoGradient = document.getElementById('tuxedoGradient');
+      const bowTieGradient = document.getElementById('bowTieGradient');
+      
+      // Crear gradientes elegantes para cada color del traje
+      let lightColor, darkColor, bowTieLight, bowTieDark;
+      if (color === '#2C2C2C') { // Negro
+        lightColor = '#2C2C2C';
+        darkColor = '#1A1A1A';
+        bowTieLight = '#1A1A1A';
+        bowTieDark = '#000000';
+      } else if (color === '#722F37') { // Vinotinto
+        lightColor = '#722F37';
+        darkColor = '#5D1A1D';
+        bowTieLight = '#5D1A1D';
+        bowTieDark = '#4A0E12';
+      } else if (color === '#4169E1') { // Azul
+        lightColor = '#4169E1';
+        darkColor = '#2E4BC6';
+        bowTieLight = '#2E4BC6';
+        bowTieDark = '#1E3A8A';
+      } else if (color === '#808080') { // Gris
+        lightColor = '#808080';
+        darkColor = '#696969';
+        bowTieLight = '#696969';
+        bowTieDark = '#555555';
+      } else if (color === '#191970') { // Azul Oscuro
+        lightColor = '#191970';
+        darkColor = '#0F0F47';
+        bowTieLight = '#0F0F47';
+        bowTieDark = '#000033';
+      }
+      
+      // Actualizar el gradiente para el traje
+      tuxedoGradient.children[0].style.stopColor = lightColor;
+      tuxedoGradient.children[1].style.stopColor = darkColor;
+      
+      // Actualizar el corbatín
+      bowTieGradient.children[0].style.stopColor = bowTieLight;
+      bowTieGradient.children[1].style.stopColor = bowTieDark;
+      
+      // Remover la clase active de todos los botones del traje
+      document.querySelectorAll('.tuxedo-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Agregar la clase active al botón seleccionado
+      button.classList.add('active');
+      
+      // Efecto de animación sutil en todo el traje
+      const tuxedoContainer = document.querySelector('.tuxedo-svg');
+      tuxedoContainer.style.transform = 'scale(1.03)';
+      setTimeout(() => {
+        tuxedoContainer.style.transform = 'scale(1)';
       }, 250);
     }
   </script>
