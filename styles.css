@@ -553,3 +553,11 @@ footer {
     min-height: 44px;
   }
 }
+
+.frase{
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-size: 20px;
+}
